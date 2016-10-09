@@ -1,9 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
 from selenium.webdriver.common.keys import Keys
+from django.test import LiveServerTestCase
 import unittest
 
-class NewVisitorTest(unittest.TestCase):
+class NewVisitorTest(LiveServerTestCase):
 
     def setUp(self):
         self.browser = webdriver.Firefox(firefox_binary=FirefoxBinary(
@@ -24,7 +25,7 @@ class NewVisitorTest(unittest.TestCase):
 
         #Edith has head about a cool new online to-do app.  She goes 
         #to check out its homepage.
-        self.browser.get('http://localhost:8000')
+        self.browser.get(self.live_server_url)
 
         #She notices the page title and header mention to-do lists
         self.assertIn('To-Do', self.browser.title)
@@ -40,7 +41,7 @@ class NewVisitorTest(unittest.TestCase):
 
         #She type "Buy peacock feathers" into the text box (Edith's 
         #hobby is tying fly fishing lures)
-        inputbox.send_keys('Use peacock feathers to make a fly')
+        inputbox.send_keys('Buy peacock feathers')
 
         #When she hits enter, the page updates, and now the page lists
         #"1: Buy peacock feathere" as an item in a to-do list
@@ -65,6 +66,4 @@ class NewVisitorTest(unittest.TestCase):
         #She visits that URL - her to-do list is still there.
 
         #Satisfied, she goes back to sleep
-if __name__ == '__main__':
-    unittest.main(warnings='ignore')
 
