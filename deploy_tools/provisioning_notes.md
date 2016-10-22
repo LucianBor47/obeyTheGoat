@@ -34,3 +34,5 @@ e.g.,, on Ubuntu:
              ├── source
              ├── static
              └── virtualenv
+
+from selenium.webdriver.firefox.firefox_binary import FirefoxBinary

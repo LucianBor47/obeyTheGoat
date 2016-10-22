@@ -1,5 +1,5 @@
-from unittest import skip
 from .base import FunctionalTest
+
 
 class ItemValidationTest(FunctionalTest):
 
