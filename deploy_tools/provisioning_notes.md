@@ -36,3 +36,4 @@ e.g.,, on Ubuntu:
              └── virtualenv
 
 from selenium.webdriver.firefox.firefox_binary import FirefoxBinary
+
