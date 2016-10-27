@@ -42,8 +42,11 @@ INSTALLED_APPS = [
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
+AUTHENTICATION_BACKENDS = (
+    'accounts.authentication.PasswordlessAuthenticationBackend',
+)
 
-MIDDLEWARE = [
+MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -123,3 +126,9 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.abspath(os.path.join(BASE_DIR, '../static'))
+
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'sniddly47@gmail.com'
+EMAIL_HOST_PASSWORD = 'AndroidR2'
+EMAIL_PORT = 587
+EMAIL_USE_TLS = True
